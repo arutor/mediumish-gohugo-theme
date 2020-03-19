@@ -1,0 +1,69 @@
+<!-- begin post -->
+<div class="listfeaturedtag h-100">
+    <div class="row h-100">
+        <div class="col-12 col-md-12 col-lg-5 pr-lg-0"  style="height: 435px;">
+            <div class="h-100">
+                <div class="wrapthumbnail">
+                    <a href="{{ .Permalink }}">
+                        <!-- Post Featured Image -->
+                        {{ with .Params.featured_image }}
+                        <img class="featured-image img-fluid" src="{{ . }}"
+                            alt="{{ substr (substr (. | urlize) 0 -4) 7 }}">
+                        {{end}}
+                        <!-- End Featured Image -->
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-md-12 col-lg-7">
+            <div class="h-100 card-group">
+                <div class="card">
+                    <div class="card-body">
+                        <h2 class="card-title">
+                            <a class="text-dark" href="{{ .Permalink }}">{{ .Title }}</a>
+                            {{ with .Params.rating }}
+                            <div class="mb-2 mt-2 font-weight-normal">
+                                {{ partial "widgets/star_rating_postbox.html" . }}
+                            </div>
+                            {{ end }}
+                        </h2>
+
+                        <h4 class="card-text">{{ .Summary }}</h4>
+                    </div>
+                    <div class="card-footer b-0 bg-white mt-auto">
+                        <div class="wrapfooter justify-content-between">
+                            {{- range .Params.authors }}
+                            {{- with $.Site.GetPage "taxonomyTerm" (printf "authors/%s" (urlize .)) }}
+                            <div class="d-flex justify-content-left">
+                                <img class="author-thumb-small"
+                                    src="{{ .RelPermalink }}{{ .Params.thumbnail | urlize | relURL}}"
+                                    alt="{{ .Params.name }}">
+                                <span class="author-snippet mt-2 ml-2">
+                                    <a target="_blank" class="link-dark"
+                                        href="{{ .RelPermalink }}">{{ .Params.name }}</a><br>
+                                    <span
+                                        class="post-date">{{ substr (index $.Site.Data.meses (printf "%d" .Date.Month)) 0 3 | title }}
+                                        {{ .Date.Day }}, {{ .Date.Year }}
+                                        -
+                                        <i class="far fa-clock"></i> {{ .ReadingTime }} min</span>
+                                </span>
+                            </div>
+                            {{ end }}
+                            {{ end }}
+                            <span class="post-read-more">
+                                <a href="{{ .RelPermalink }}" title="Leer post"><svg class="svgIcon-use" width="25"
+                                        height="25" viewbox="0 0 25 25">
+                                        <path
+                                            d="M19 6c0-1.1-.9-2-2-2H8c-1.1 0-2 .9-2 2v14.66h.012c.01.103.045.204.12.285a.5.5 0 0 0 .706.03L12.5 16.85l5.662 4.126a.508.508 0 0 0 .708-.03.5.5 0 0 0 .118-.285H19V6zm-6.838 9.97L7 19.636V6c0-.55.45-1 1-1h9c.55 0 1 .45 1 1v13.637l-5.162-3.668a.49.49 0 0 0-.676 0z"
+                                            fill-rule="evenodd"></path>
+                                    </svg>
+                                </a>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end post -->

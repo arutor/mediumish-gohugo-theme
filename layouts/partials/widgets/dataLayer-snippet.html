@@ -1,0 +1,12 @@
+<!-- dataLayer tracking -->
+<script type="text/javascript">
+    var link = document.getElementById('{{ .Params.elementId }}');
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+        'event': "{{ .Params.eventName }}",
+        'userId': "{{ .Params.userId }}",
+        'elementId': "{{ .Params.elementId }}",
+        'pageURL': "{{ .Params.permalink }}"
+    });
+</script>
+<!-- .dataLayer tracking -->

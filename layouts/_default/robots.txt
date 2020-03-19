@@ -1,0 +1,8 @@
+User-agent: *
+
+{{ if eq .Site.Params.environment "production" }}
+Allow: /
+{{ else }}
+Disallow: /
+{{ end -}}
+Sitemap: /sitemap.xml

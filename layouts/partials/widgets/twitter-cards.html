@@ -1,0 +1,10 @@
+<meta name="twitter:card" content="{{ .Site.Params.summary_large_image }}">
+<meta name="twitter:site" content="{{ .Site.Params.twitter_card_site }}">
+{{ if eq .RelPermalink "/" }}
+<meta name="twitter:title" content="{{ .Page.Params.name }} | {{ .Page.Params.title }}">
+{{ else }}
+<meta name="twitter:title" content="{{ .Page.Params.title }} | {{ .Page.Params.name }}">
+{{ end }}
+<meta name="twitter:description" content="{{ .Page.Params.Description }}">
+<meta property="twitter:url" content="{{ .Permalink }}" />
+<meta name="twitter:image" content="{{ .Page.Params.thumbnail }}">

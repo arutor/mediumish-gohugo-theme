@@ -1,0 +1,12 @@
+{{ define "main" }}
+<div class="mainheading">
+    <h1 class="sitetitle">{{ .Params.Title }}</h1>
+    <p class="lead">
+         {{ .Params.subtitle }}
+    </p>
+    <hr>
+</div>
+<div class="main-content">
+    {{ .Content }}
+</div>
+{{ end }}

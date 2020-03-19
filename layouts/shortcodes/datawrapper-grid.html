@@ -1,0 +1,60 @@
+{{- $source1 := .Get "source1" -}}
+{{- $source2 := .Get "source2" -}}
+{{- $width := .Get "width" -}}
+{{- $source1_title := .Get "source1_title" -}}
+{{- $source2_title := .Get "source2_title" -}}
+{{- $label := .Get "label" -}}
+{{- $id := .Get "id" -}}
+{{- $scrolling := .Get "scrolling" -}}
+{{- $frameborder := .Get "frameborder" -}}
+{{- $height := .Get "height" -}}
+<div class="container py-2">
+    <div class="row">
+        <div class="col">
+            <div class="row">
+                <div class="col">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <p class="lead text-center mt-5 mb-0"><strong>{{$source1_title}}</strong></p>
+                            <iframe class="mt-0" title="{{$source1_title}}" aria-label="{{$label}}" id="{{$id}}" src="{{ $source1 }}" scrolling="{{$scrolling}}"
+                                frameborder="{{$frameborder}}" style="width: {{$width}}; min-width: 100% !important; border: none;"
+                                height="{{$height}}">
+                            </iframe>
+                            <script type="text/javascript">
+                                !function () {
+                                    "use strict";
+                                    window.addEventListener("message", function (a) {
+                                        if (void 0 !== a.data["datawrapper-height"])
+                                            for (var e in a.data["datawrapper-height"]) {
+                                                var t = document.getElementById("datawrapper-chart-" + e) || document.querySelector("iframe[src*='" + e + "']");
+                                                t && (t.style.height = a.data["datawrapper-height"][e] + "px")
+                                            }
+                                    })
+                                }();
+                            </script>
+                        </div>
+                        <div class="col-lg-6">
+                            <p class="lead text-center mt-5 mb-0"><strong>{{$source2_title}}</strong></p>
+                            <iframe class="mt-0" title="{{$source1_title}}" aria-label="{{$label}}" id="{{$id}}" src="{{ $source2 }}" scrolling="{{$scrolling}}"
+                                frameborder="{{$frameborder}}" style="width: {{$width}}; min-width: 100% !important; border: none;"
+                                height="{{$height}}">
+                            </iframe>
+                            <script type="text/javascript">
+                                !function () {
+                                    "use strict";
+                                    window.addEventListener("message", function (a) {
+                                        if (void 0 !== a.data["datawrapper-height"])
+                                            for (var e in a.data["datawrapper-height"]) {
+                                                var t = document.getElementById("datawrapper-chart-" + e) || document.querySelector("iframe[src*='" + e + "']");
+                                                t && (t.style.height = a.data["datawrapper-height"][e] + "px")
+                                            }
+                                    })
+                                }();
+                            </script>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

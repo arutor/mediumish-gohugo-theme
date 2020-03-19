@@ -1,0 +1,7 @@
+<!-- begin post -->
+<div class="swiper-slide-card" style="background-color: rgb(250,250,250);">
+    <h2><a class="text-dark text-left" href="{{ .Permalink }}">{{ .Title }}</a></h2>
+    <p>{{- range .Params.categories -}}<a class="text-dark" href="/{{ urlize . }}">{{ title . | upper }}</a> {{- end }}<span class="dot"></span>{{ .ReadingTime }} MIN
+    </p>
+</div>
+<!-- end post -->

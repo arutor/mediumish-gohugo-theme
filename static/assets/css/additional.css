@@ -1,0 +1,280 @@
+.index-title{
+    color: rgba(0,0,0,.84);
+    margin-top:20px;
+}
+.index-sub{
+    color: rgba(0,0,0,.54);
+
+}
+.index-text{
+    margin-top:20px;
+    color: rgba(0,0,0,.44);
+}
+.index-image{
+    width: 400px;
+}
+.social-icon{
+    color: rgba(0,0,0,.44);
+    font-size:1.5rem;
+}
+.clock{
+    margin-left: 25px;
+}
+.jumbotron.fortags a {
+    background: #1C9963 !important;
+}
+.error{
+    text-align: center !important;
+}
+@media(min-width: 769px){
+    .md-nopad-right{
+        padding-right: 0px !important;
+    }
+    .md-nopad-left{
+        padding-left: 0px !important;
+    }
+}
+
+/*========================
+    BASIC styles
+  =======================*/
+  * {
+    box-sizing: border-box;
+  }
+  
+  /*========================
+      BUTTON styles
+    =======================*/
+  .clap {
+    position: relative;
+    outline: 1px solid transparent;
+    border-radius: 50%;
+    border: 1px solid #bdc3c7;
+    width: 80px;
+    height: 80px;
+    background: none;
+  }
+  .clap:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    border-radius: 50%;
+    width: 79px;
+    height: 79px;
+  }
+  .clap:hover {
+    cursor: pointer;
+    border: 1px solid #27ae60;
+    transition: border-color 0.3s ease-in;
+  }
+  .clap:hover:after {
+    animation: shockwave 1s ease-in infinite;
+  }
+  .clap svg {
+    width: 40px;
+    fill: none;
+    stroke: #27ae60;
+    stroke-width: 2px;
+  }
+  .clap svg.checked {
+    fill: #27ae60;
+    stroke: #fff;
+    stroke-width: 1px;
+  }
+  .clap .clap--count {
+    position: absolute;
+    top: -50px;
+    left: 20px;
+    font-size: 0.8rem;
+    color: white;
+    background: #27ae60;
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+    line-height: 40px;
+  }
+  .clap .clap--count-total {
+    position: absolute;
+    font-size: 0.8rem;
+    width: 80px;
+    text-align: center;
+    left: 0;
+    top: -22.8571428571px;
+    color: #bdc3c7;
+  }
+  
+
+/* Podcast player */
+.pcast-player button span {
+    position: absolute !important;
+    clip: rect(1px 1px 1px 1px);
+    /* IE6, IE7 */
+    clip: rect(1px, 1px, 1px, 1px);
+    padding: 0 !important;
+    border: 0 !important;
+    height: 1px !important;
+    width: 1px !important;
+    overflow: hidden;
+  }
+  
+  /* Pcast Player */
+  .pcast-player .pcast-player-controls {
+    box-sizing: border-box;
+    background: #000;
+    color: #fff;
+    font-size: 14px;
+    height: 42px;
+    overflow: hidden;
+    padding: 5px;
+  }
+  .pcast-player button {
+    background: #2a2a2a;
+    color: #fff;
+    border: 0;
+    border-radius: 2px;
+    padding: 5px;
+    line-height: 22px;
+    -webkit-appreance: none;
+    min-width: 32px;
+  }
+  .pcast-player progress {
+    height: 13px;
+    width: calc(100% - 281px);
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+  }
+  .pcast-player progress[value]::-webkit-progress-bar {
+    background-color: #555;
+    border-radius: 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
+  }
+  .pcast-player progress[value]::-webkit-progress-value {
+    background: #fff;
+  }
+  .pcast-player .pcast-time {
+    display: inline-block;
+    font-size: 13px;
+    padding: 0 5px;
+    text-align: center;
+    width: 4em;
+  }
+  .pcast-player .pcast-speed {
+    width: 2.5em;
+  }
+  .pcast-player .pcast-download {
+    font-size: 12px;
+    margin-top: 0.5em;
+    display: inline-block;
+    color: black;
+  }
+  .pcast-player .pcast-download:hover, .pcast-player .pcast-download:focus {
+    color: #666;
+  }
+
+  /*================================
+   *  SWIPER
+   *================================*/
+  .swiper-container,
+  .swiper-container-resources,
+  .swiper-wrapper,
+  .swiper-slide {
+    width: 100%;
+    height: 450px;
+    max-height: 100%;
+    z-index: -1;
+  } 
+  .swiper-container-resources {
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+  }
+  .swiper-slide {
+    background: none;
+    margin-top: 0;
+    margin-bottom: 1rem;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -ms-flex-pack: center;
+    justify-content: space-between;
+    -ms-flex-align: center;
+    align-items: flex-start;
+
+    -webkit-flex-shrink: 0;
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+    position: relative;
+    -webkit-transition-property: -webkit-transform;
+    transition-property: -webkit-transform;
+    -o-transition-property: transform;
+    transition-property: transform;
+    transition-property: transform,-webkit-transform;
+  }
+
+  .swiper-slide .swiper-slide-card {
+    width: 88%;
+    border: #E3EDF3 1px solid;
+    background-color: #fff; 
+    padding: 10px;
+    text-align: left;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    height: auto !important;
+    -ms-flex-pack: center;
+    justify-content: center;
+    padding: 1rem 1rem;
+    min-height: 100px;
+    margin-bottom: 10px;
+  }
+
+  .swiper-slide:first-child {
+    margin-top: 0;
+}
+  .swiper-slide .swiper-slide-card h2 {
+    font-size: 18px;
+    font-weight: 400; 
+  }
+
+  .swiper-slide .swiper-slide-card p {
+    font-size: 12px;
+    margin-bottom: 0;
+  }
+
+  input[type=email],
+  input[type=text],
+  select, textarea {
+    width: 100%;
+    border-top: 0px;
+    border-bottom: 1px solid black;
+    border-left: 0px;
+    border-right: 0px;
+    border-radius: 0px;
+    background-color: transparent;
+    padding: 0;
+    margin: 0;
+    color: grey;
+  }
+
+  /* Shadow images */
+  .shadowed {
+    border: 1px solid #8a4419;
+    border-style: inset;
+    -moz-box-shadow: 1px 2px 4px rgba(0, 0, 0,0.5);
+    -webkit-box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
+    box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
+  }
+
+  /* Contact div */
+  .contact-us {
+    display: flex;
+    background: url(/assets/images/thumbs/contact-us.jpeg);
+    background-size: cover;
+    background-position: center;
+    opacity: 0.9;
+    z-index: 0;
+  }

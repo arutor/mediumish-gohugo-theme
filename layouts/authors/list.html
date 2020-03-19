@@ -1,0 +1,56 @@
+{{ define "main" }}
+    <div class="main-content">
+        <div class="row mt-5">
+            <div class="col-lg-4">
+                <img src="{{ .Params.thumbnail }}" alt="{{ .Params.name | urlize }}" style="border-radius: 1%;"/>
+            </div>
+            <div class="col-lg-8">
+                <div class="row ml-2">
+                {{ partial "_shared/title.html" . }}
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 col-md-6 col-lg-7 text-left text-md-left ml-2">
+                        {{ with .Params.github }}
+                        <a class="pr-2" target="_blank" href="https://github.com/{{.}}"><i class="fab fa-github social-icon" aria-hidden="true"></i></a>
+                        {{ end }}
+                        {{ with .Params.linkedin }}
+                        <a class="pr-2" target="_blank" href="https://www.linkedin.com/in/{{.}}"><i class="fab fa-linkedin social-icon" aria-hidden="true"></i></a>
+                        {{ end }}
+                        {{ with .Params.medium }}
+                        <a class="pr-2" target="_blank" href="https://www.medium.com/@{{.}}"><i class="fab fa-medium social-icon" aria-hidden="true"></i></a>
+                        {{ end }}
+                        {{ with .Params.twitter }}
+                        <a class="pr-2" target="_blank" href="https://twitter.com/{{.}}"><i class="fab fa-twitter social-icon" aria-hidden="true"></i></a>
+                        {{ end }}
+                        {{ with .Params.facebook }}
+                        <a class="pr-2" target="_blank" href="https://facebook.com/{{.}}"><i class="fab fa-facebook social-icon" aria-hidden="true"></i></a>
+                        {{ end }}
+                        {{ with .Params.instagram }}
+                        <a class="pr-2" target="_blank" href="https://www.instagram.com/{{.}}"><i class="fab fa-instagram social-icon" aria-hidden="true"></i></a>
+                        {{ end }}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-title mt-5">
+            <h2><span>Artículos</span></h2>
+        </div>
+
+
+        <!-- Posts Index
+        ================================================== -->
+        <section class="recent-posts">                     
+            <div class="row listrecent">
+                {{ $post_paginator := .Paginate (.Pages) }}
+                {{ range $post_paginator.Pages.ByDate.Reverse }}
+                <div class="col-lg-4 col-md-6 mb-30px card-group">
+                    {{- partial "list-partials/postbox.html" . -}}
+                </div>
+                {{end}}
+            </div>
+        </section>
+        {{- partial "list-partials/pagination.html" $post_paginator -}}
+    </div>
+    {{- partial "_shared/alertbar.html" . -}}
+{{ end }}

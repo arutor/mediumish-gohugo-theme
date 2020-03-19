@@ -1,0 +1,11 @@
+{{ if eq .RelPermalink "/" }}
+<meta property="og:title" content="{{ .Page.Params.name }} | {{ .Page.Params.title }}" />
+{{ else }}
+<meta property="og:title" content="{{ .Page.Params.title }} | {{ .Page.Params.name }}" />
+{{ end }}
+<meta property="og:description" content="{{ .Page.Params.Description }}" />
+<meta property="og:type" content="{{ .Site.Params.meta_type }}" />
+<meta property="og:locale" content="{{ .Site.Params.language }}" />
+<meta property="og:site_name" content="{{ .Site.Params.Name }}" />
+<meta property="og:url" content="{{ .Permalink }}" />
+<meta property="og:image" content="{{ .Site.Params.summary_large_image }}" />

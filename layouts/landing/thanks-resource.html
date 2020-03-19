@@ -1,0 +1,45 @@
+{{ define "main" }}
+<div class="main-content">
+    <!-- Begin Landing Thanks
+        ================================================== -->
+    <div class="container container-gradient mb-5 pb-5">
+        <div class="container d-flex justify-content-center mb-5">
+            <a href="/"><img class="featured-image img-fluid" src="{{ .Site.Params.logo.logo }}" width="300px"
+                alt="{{ .Site.Params.logo.logo_alt }}"></a>
+        </div>
+        <div class="row pt-5">
+            <div class="col-md-6 flex-first flex-md-unordered">
+                <!-- Resource screenshot -->
+                <div class="mainheading">
+                    <img class="featured-image img-fluid" src="{{ .Params.featured_image }}" alt="{{ .Params.featured_alt }}">
+                </div>
+            </div>
+            <div class="col-md-6 flex-first flex-md-unordered pt-5">
+                <div class="row d-flex justify-content-center">
+                    <h2>¡Muchas gracias!</h2>
+                    <p class="text-center mr-5 ml-5 mb-3">Esperamos que {{ .Title }} te sea realmente útil</p>
+                    <!-- Landing thank you -->
+                    <a href="{{ .Params.file }}"><button class="btn btn-lg btn-block pl-4 pr-4"
+                            style="background-color: black; color: white ;">Descargar</button></a>
+                    <p class="mt-5">¿Sabes de alguien al que le podría interesar? Cuéntaselo!</p>
+                </div>
+                <!-- Sharing icons -->
+                {{ partial "widgets/landing-share.html" . }}
+            </div>
+        </div>
+    </div>
+    <div class="container mb-5">
+        <div class="row d-flex flex-colum justify-content-center">
+            <div class="col-3"></div>
+            <div class="col-6">
+                <h3 class="text-center">Suscríbete a la newsletter</h3>
+                <!-- suscription form -->
+                <div class="container">
+                    {{ partial "_shared/subscription-form.html" . }}
+                </div>
+            </div>
+            <div class="col-3"></div>
+        </div>
+    </div>
+</div>
+{{ end }}

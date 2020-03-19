@@ -3,9 +3,9 @@ languageCode = "en-us"
 title = "Mediumish"
 theme = "mediumish-gohugo-theme"
 summaryLength = 25
-copyright = "John Doe - All rights reserved"
+copyright = "THE PRODUCT HACKER"
 enableEmoji = true
-publishDir = "docs"
+publishDir = "public"
 #disqusShortname = "your-shortname-here"
 #googleAnalytics = "UA-1XXXXXXX1-1"
 

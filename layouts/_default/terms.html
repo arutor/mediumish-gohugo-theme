@@ -1,0 +1,17 @@
+{{ define "main" }}
+    <div class="main-content">
+        {{ partial "_shared/title.html" . }}
+        <!-- Posts Index
+        ================================================== -->
+        <section class="recent-posts">                      
+            <div class="row listrecent">
+                {{ $post_paginator := .Paginate (.Pages) 9 }}
+                {{ range $post_paginator.Pages }}
+                    {{- partial "list-partials/taxbox.html" . -}}
+                {{end}}
+            </div>
+        </section>
+        {{- partial "list-partials/pagination.html" $post_paginator -}}
+    </div>
+    {{- partial "_shared/alertbar.html" . -}}
+{{ end }}

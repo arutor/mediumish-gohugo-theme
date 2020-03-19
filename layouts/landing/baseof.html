@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
+    {{- partial "_shared/head.html" . -}}
+    <body>
+        {{ partial "widgets/gtag-manager-body.html" . }}
+        <div class="site-content">   
+            <div class="container">
+                {{- block "main" . }}{{- end }}
+            </div>
+            {{- block "footer" . }}{{- end }}
+            {{- partial "_shared/landing-footer.html" . -}}
+        </div>
+        {{- partial "_shared/js.html" . -}}
+    </body>
+</html>

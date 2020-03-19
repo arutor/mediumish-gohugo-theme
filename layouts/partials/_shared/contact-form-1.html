@@ -1,0 +1,66 @@
+<form id="tphForm" name="{{ .Slug }}" class="contact-form"
+    action="https://o0mrh37931.execute-api.eu-west-1.amazonaws.com/prod/contactar" method="POST">
+    <div class="contact-form-success alert alert-success d-none mt-4" id="messageSuccess">
+        <strong>Genial!</strong> Todo en orden, comprueba tu inbox para completar el proceso.
+    </div>
+
+    <div class="contact-form-error alert alert-danger d-none mt-4" id="messageError">
+        <strong>Uoops!</strong> Ocurrió algo inesperado, inténtalo de nuevo.
+        <span class="mail-error-message text-1 d-block" id="mailErrorMessage"></span>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group col-lg-6">
+            <input type="text" value="" data-msg-required="Por favor, introduce tu nombre y apellidos"
+                data-msg-email="Introduce tu nombre y apellidos" maxlength="100"
+                data-error="Es necesario introducir tu nombre y apellidos" class="form-control"
+                placeholder="Nombre y Apellidos" name="name" id="name" required>
+        </div>
+        <div class="form-group col-lg-6">
+            <input type="email" value="" data-msg-required="Por favor, introduce tu email"
+                data-msg-email="Por favor, introduce una dirección de email válida" maxlength="100"
+                data-error="Es necesario introducir un e-mail" class="form-control" placeholder="Email" name="email"
+                id="email" required>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col">
+            <select id="subject" class="form-control" name="subject"
+                data-msg-required="Por favor, dinos sobre qué nos quieres hablar"
+                data-msg-subject="Por favor, selecciona el motivo de tu contacto"
+                data-msg-error="Es necesario que nos indiques el motivo de tu contacto"
+                placeholder="Selecciona el tema sobre el que nos escribes" required>
+                <option value="seleccionar">Selecciona el tema sobre el que nos escribes</option>
+                <option value="escribir">Quiero escribir en el blog sobre producto</option>
+                <option value="consultar">Quiero haceros una consulta</option>
+                <option value="proponer">Quiero proponeros algo</option>
+            </select>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col">
+            <textarea maxlength="5000" data-msg-required="Por favor, déjanos un mensaje" rows="5" class="form-control"
+                data-msg-error="Si no nos dices cosas con sentido no podremos ayudarte" placeholder="Tu mensaje"
+                name="message" id="message" required></textarea>
+        </div>
+    </div>
+    <div class="form-row ml-4">
+        <div class="form-group col">
+            <input type="checkbox" class="custom-control-input form-control" id="terms" name="terms"
+                data-msg-required="Por favor, debes aceptar los términos para poder continuar" required>
+            <label class="custom-control-label" style="font-size: 14px; padding-top: 3px;" for="terms">Acepto los <a
+                    href="/aviso-legal">términos</a> y <a href="/politica-de-privacidad">condiciones</a> y permito a
+                THEPRODUCTHACKER responder a esta petición al correo proporcionado
+                establecidas</label>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col">
+            <div id='recaptcha' class="g-recaptcha" data-sitekey="6LfVuN0UAAAAAMdyjCvCVkgW9ldKpw789L6N_B3q"
+                data-callback="submitForm" data-size="invisible" data-badge="bottomleft">
+            </div>
+            <input type="submit" value="Enviar" class="btn btn-block btn-primary btn-modern"
+                data-loading-text="Enviando...">
+        </div>
+    </div>
+</form>

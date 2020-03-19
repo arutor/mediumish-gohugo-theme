@@ -1,33 +1,110 @@
-{{ define "header"}}
-    {{- partial "_shared/navbar.html" . -}}
-{{ end }}
-
 {{ define "main" }}
-    <div class="main-content">
-        <header class="text-center">
-            {{ with .Site.Params.index.picture }}
-                <img src="{{ . | urlize | relURL }}" class="rounded-circle text-center index-image">
-            {{ end }}
-            <h1 class="index-title">{{ .Site.Params.index.title }}</h1>
-        </header>
+<div class="main-content mt-5">
+    <!-- Featured
+    ================================================== -->
+    <section class="featured-posts">
+        <div class="row">
+            <!-- begin most recent featured post -->
+            <div class="col-md-6 mb-30px">
+                {{ $posts := (where (where .Site.Pages "Section" "blog") "Type" "post") }}
+                {{ range first 1 (where $posts.ByDate.Reverse "Params.featured" true) }}
+                {{ partial "list-partials/featuredbox.html" . }}
+                {{ end }}
+            </div>
+            <!-- end most recent featured post -->
+            <!-- begin swiper featured posts -->
+            <div class="col-md-6">
+                <div class="swiper-container" style="height: 450px;">
+                    <div class="swiper-wrapper">
+                        {{ $posts := (where (where .Site.Pages "Section" "blog") "Type" "post") }}
+                        {{- $paginator_swiper := .Paginate (where $posts.ByDate.Reverse "Params.featured" true) 4 -}}
+                        {{ range after 1 $paginator_swiper.Pagers }}
+                        <div class="swiper-slide">
+                            {{- range .Pages -}}
+                            {{ partial "list-partials/cardbox.html" . }}
+                            {{- end -}}
+                        </div>
+                        {{- end -}}
+                    </div>
+                    <div class="swiper-pagination">
+                    </div>
+                    <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
+                </div>
+            </div>
+            <!-- end swiper featured posts -->
+        </div>
+    </section>
 
-        <section class="text-center">
-            {{ with .Site.Params.index.subtitle }}
-            <h3 class="index-sub">{{ . }}</h3>
-            {{ end }}
-            {{ with .Site.Params.index.mdtext }}
-            <h6 class="index-text">{{ . | markdownify }}</h6>
-            {{ end }}
-        </section>
+    <section id="ads">
+        <div class="row">
+            <div class="col-md-4 mt-3 mb-3">
+                <h3 class="mb-5"><strong>Regístrate hoy</strong> para recibir noticias y actualizaciones de
+                    THEPRODUCTHACKER</h3>
+                <a href="/suscribir/"><button class="btn btn-lg btn-block"
+                        style="background-color: black; color: white ;">Suscríbete</button></a>
+            </div>
+            <div class="col-md-8">
+                <div class="owl-carousel owl-theme owl-loaded">
+                    <div class="owl-stage-outer">
+                        <div class="owl-stage">
+                            {{- $resources := (where .Site.Pages "Type" "landing") -}}
+                            {{ range $resources }}
+                            {{ if eq .Params.layout "resource" }}
+                            <div class="owl-item">
+                                {{ partial "list-partials/resourcebox.html" . }}
+                            </div>
+                            {{ end }}
+                            {{- end -}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>
+</section>
+<!-- Recent Posts
+    ================================================== -->
+<section class="recent-posts mt-5">
+    <div class="section-title">
+        <h2><span>Lo último en el blog...</span></h2>
     </div>
-    {{- partial "_shared/social.html" . -}}
-    {{ if isset .Site.Params.index "alertbar" }}
-    	{{ if .Site.Params.index.alertbar }}
-            {{- partial "_shared/alertbar.html" . -}}
+    <div class="row listrecent">
+        {{ $posts := where (where .Site.Pages "Section" "blog") "Type" "post" }}
+        {{ range first 3 $posts.ByDate.Reverse }}
+        <div class="col-lg-4 col-md-6 mb-30px card-group">
+            {{- partial "list-partials/postbox.html" . -}}
+        </div>
         {{ end }}
-    {{ end }}
-{{end}}
+    </div>
+    <div class="text-center">
+        <a href="/blog/"><button class="btn btn-lg" style="background-color: black; color: white ;">Ver
+                más</button></a>
+    </div>
+</section>
 
-{{ define "footer" }}
-    {{- partial "_shared/footer.html" . -}}
-{{end}}
+<!-- Recent Podcasts
+    ================================================== -->
+<section class="recent-posts">
+    <div class="section-title">
+        <h2><span>Y en el Podcast...</span></h2>
+    </div>
+    <div class="row listrecent">
+        {{ $podcasts := where (where .Site.Pages "Section" "podcast") "Type" "post" }}
+        {{ range first 3 $podcasts.ByDate.Reverse }}
+        <div class="col-lg-4 col-md-6 mb-30px card-group">
+            {{- partial "list-partials/postbox.html" . -}}
+        </div>
+        {{ end }}
+    </div>
+</section>
+<div class="text-center pb-5">
+    <a href="/podcast/"><button class="btn btn-lg" style="background-color: black; color: white ;">Ver
+            más</button></a>
+</div>
+</div>
+{{ if isset .Site.Params.index "alertbar" }}
+{{ if .Site.Params.index.alertbar }}
+{{- partial "_shared/alertbar.html" . -}}
+{{ end }}
+{{ end }}
+{{ end }}

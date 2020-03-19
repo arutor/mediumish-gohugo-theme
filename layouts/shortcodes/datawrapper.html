@@ -1,0 +1,28 @@
+{{- $title := .Get "title" -}}
+{{- $label := .Get "label" -}}
+{{- $id := .Get "id" -}}
+{{- $source := .Get "source" -}}
+{{- $scrolling := .Get "scrolling" -}}
+{{- $frameborder := .Get "frameborder" -}}
+{{- $width := .Get "width" -}}
+{{- $height := .Get "height" -}}
+
+<div class="container mt-4 mb-4">
+    <p class="lead text-center mt-5 mb-0"><strong>{{$title}}</strong></p>
+    <iframe class="mt-0" title="{{$title}}" aria-label="{{$label}}" id="{{$id}}" src="{{$source}}" scrolling="{{$scrolling}}"
+        frameborder="{{$frameborder}}" style="width: {{$width}}; min-width: 100% !important; border: none;"
+        height="{{$height}}">
+    </iframe>
+    <script type="text/javascript">
+        !function () {
+            "use strict";
+            window.addEventListener("message", function (a) {
+                if (void 0 !== a.data["datawrapper-height"])
+                    for (var e in a.data["datawrapper-height"]) {
+                        var t = document.getElementById("datawrapper-chart-" + e) || document.querySelector("iframe[src*='" + e + "']");
+                        t && (t.style.height = a.data["datawrapper-height"][e] + "px")
+                    }
+            })
+        }();
+    </script>
+</div>

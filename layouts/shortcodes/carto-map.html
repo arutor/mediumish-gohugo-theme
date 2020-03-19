@@ -1,0 +1,7 @@
+{{- $source := .Get "source" -}}
+{{- $height := .Get "height" -}}
+{{- $title := .Get "title" -}}
+<p class="lead text-center mt-5 mb-0"><strong>{{$title}}</strong></p>
+<iframe class="mt-0" width="100%" height="{{$height}}" frameborder="0" src="{{$source}}" allowfullscreen webkitallowfullscreen
+    mozallowfullscreen oallowfullscreen msallowfullscreen>
+</iframe>

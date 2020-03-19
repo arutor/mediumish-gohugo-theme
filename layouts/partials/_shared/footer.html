@@ -1,16 +1,54 @@
 <!-- Begin Footer
 ================================================== -->
-<footer class="footer">
+<footer class="footer mt-5">
+    <div class="container mt-5 mb-3">
+        <div class="row">
+            <div class="col-md-3 text-left">
+                <h6 class="mb-4">Nuestras secciones</h6>
+                {{ $currentPage := . }}
+                <ul class="list-unstyled">
+                    {{ range .Site.Menus.main }} 
+                    <li class="mb-1"><a href="{{ .URL }}">{{ .Name | title }}</a>
+                    </li>
+                    {{ end }}
+                </ul>
+            </div>
+            <div class="col-md-3 text-left">
+                <h6 class="mb-4">Descubre</h6>
+                <ul class="list-unstyled">
+                    <li class="mb-1"><a href="/blog/">Blog</a></li>
+                    <li class="mb-1"><a href="/podcast/">Podcast</a></li>
+                    <li class="mb-1"><a href="/ebooks/">Ebooks</a></li>
+                    <li class="mb-1"><a href="/recursos/">Recursos</a></li>
+                </ul>
+            </div>
+            <div class="col-md-3 text-left">
+                <h6 class="mb-4">Nosotros</h6>
+                <ul class="list-unstyled">
+                    <li class="mb-1"><a href="/sobre-nosotros">Sobre nosotros</a></li>
+                    <li class="mb-1"><a href="/sobre-nosotros#propósito">Nuestro propósito</a></li>
+                    <li class="mb-1"><a href="/contactar">Contacto</a></li>
+                </ul>
+            </div>
+            <div class="col-md-3 text-left">
+                <h6 class="mb-4">Nos gusta crear producto</h6>
+                <p>Estamos aprendiendo el camino, nada está escrito en piedra, experimenta, disfruta. Síguenos también en</p>
+                {{- partial "_shared/social.html" . -}}
+            </div>
+        </div>
+    </div>
+    <hr>
+<!-- End Footer
+================================================== -->
+<!-- Begin Copyright
+================================================== -->
     <div class="container">
         <div class="row">
-            <div class="col-md-6 col-sm-6 text-center text-lg-left">
-                &copy; Copyright {{ .Site.Copyright }}
-            </div>
-            <div class="col-md-6 col-sm-6 text-center text-lg-right">    
-                <a target="_blank" rel="noopener" href="https://www.wowthemes.net">Mediumish Theme</a> by WowThemes.net
+            <div class="col text-center text-lg-center">
+                {{ .Date.Year }} &copy; {{ .Site.Copyright }} | <a target="_blank" rel="noopener" href="/politica-de-privacidad">Política de Privacidad</a> | <a target="_blank" rel="noopener" href="/politica-de-privacidad">Aviso Legal</a>
             </div>
         </div>
     </div>
 </footer>
-<!-- End Footer
+<!-- End Copyright
 ================================================== -->

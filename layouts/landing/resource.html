@@ -1,0 +1,61 @@
+{{ define "main" }}
+<div class="main-content">
+    <!-- Begin Landing
+        ================================================== -->
+    <div class="container container-gradient mb-5 pb-5">
+        <div class="container d-flex justify-content-center">
+            <a href="/"><img class="featured-image img-fluid" src="{{ .Site.Params.logo.logo }}" width="300px"
+                alt="{{ .Site.Params.logo.logo_alt }}"></a>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <!-- Resource screenshot -->
+                <div class="mainheading">
+                    <img class="featured-image img-fluid shadowed" src="{{ .Params.featured_image }}"
+                        alt="{{ .Params.featured_alt }}">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="container-fluid mt-5">
+                    <h2 class="d-flex justify-content-left align-items-center">{{ .Title }}</h2>
+                </div>
+                <div class="container-fluid d-flex justify-content-center align-items-end">
+                    <!-- Landing form -->
+                    {{ if eq .Section "recursos" }}
+                    {{ partial "_shared/resource-form.html" . }}
+                    {{ else if eq .Section "ebooks" }}
+                    {{ partial "_shared/ebook-form.html" . }}
+                    {{ end }}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container mt-5 mb-5">
+        <div class="row">
+            <div class="col-md-7">
+                <div class="article-post">
+                    <h2>¿Qué encontrarás aquí?</h2>
+                    {{ .Content}}
+                </div>
+            </div>
+            <div class="col-md-5 d-flex justify-content-center align-items-center">
+                <!-- swiper resource screenshots -->
+                <div class="owl-carousel owl-theme owl-loaded ml-5">
+                    <div class="owl-stage-outer">
+                        <div class="owl-stage">
+                            {{ range .Params.thumbnails }}
+                            <div class="owl-item">
+                                <img class="img-fluid" src="images/{{ . }}"
+                                    alt="{{ substr . 0 -4 }}">
+                            </div>
+                            {{ end -}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container container-inverted-gradient">
+    </div>
+</div>
+{{ end }}

@@ -1,0 +1,26 @@
+{{- $image1 := .Get "image1" -}}
+{{- $image2 := .Get "image2" -}}
+{{- $image1_alt := .Get "image1_alt" -}}
+{{- $image2_alt := .Get "image2_alt" -}}
+{{- $image1_title := .Get "image1_title" -}}
+{{- $image2_title := .Get "image2_title" -}}
+<div class="container py-2">
+    <div class="row">
+        <div class="col">
+            <div class="row">
+                <div class="col">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <p class="lead">{{ $image1_title }}</p>
+                            <img class="img-fluid mb-4" src="{{ $image1 }}" alt="{{ $image1_alt }}">
+                        </div>
+                        <div class="col-lg-6">
+                            <p class="lead">{{ $image2_title }}</p>
+                            <img class="img-fluid mb-4" src="{{ $image2 }}" alt="{{ $image2_alt }}">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

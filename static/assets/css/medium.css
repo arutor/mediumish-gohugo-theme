@@ -97,6 +97,7 @@ section.recent-posts {
     .navbar-expand-lg .navbar-nav .nav-link {
         padding-right: 0.8rem;
         padding-left: 0.8rem;
+        color: #000;
     }
 }
 
@@ -172,6 +173,12 @@ section.recent-posts {
     margin-bottom: 15px;
 }
 
+.wrapfooter .author-thumb-small {
+    width: 48px;
+    height: 48px;
+    border-radius: 100%;
+}
+
 .author-thumb {
     width: 40px;
     height: 40px;
@@ -183,8 +190,13 @@ section.recent-posts {
 }
 
 .post-top-meta .author-thumb {
-    width: 72px;
-    height: 72px;
+    width: 92px;
+    height: 92px;
+}
+.post-top-meta .author-thumb-small {
+    width: 48px;
+    height: 48px;
+    border-radius: 100%;
 }
 
 .post-top-meta.authorpage .author-thumb {
@@ -196,7 +208,19 @@ section.recent-posts {
     color: rgba(0, 0, 0, .44);
     display: inline-block;
 }
+.post-top-meta span.dot {
+    margin-top: -1px;
+}
 
+.post-top-meta .author-snippet {
+    margin-bottom: 0px;
+    margin-top: 5px;
+    font-size: 0.85rem;
+}
+
+.post-top-meta .author-snippet .link-dark {
+    color: rgba(0, 0, 0, .8);
+}
 .post-top-meta .author-description {
     margin-bottom: 5px;
     margin-top: 5px;
@@ -284,7 +308,11 @@ span.post-read-more a:hover {
 
 .mediumnavigation .nav-item,
 .dropdown-menu {
-    font-size: 0.9rem;
+    font-size: 1rem;
+    font-family: "Oswald";
+    font-weight: 400;
+    text-transform: uppercase;
+    color: #000;
 }
 
 .mediumnavigation .search-icon {
@@ -300,12 +328,20 @@ span.post-read-more a:hover {
 }
 
 .mainheading h1.sitetitle {
-    font-family: Righteous;
+    font-family: 'Oswald';
 }
 
 .mainheading h1.posttitle {
     font-weight: 700;
     margin-bottom: 1rem;
+}
+
+.mainheading p.post-subtitle {
+    font-weight: 400;
+    font-size: 1.2rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    color: grey;
 }
 
 .footer {
@@ -314,14 +350,55 @@ span.post-read-more a:hover {
     padding-bottom: 12px;
     font-size: 0.8rem;
     color: rgba(0, 0, 0, .44);
-    margin-top: 50px;
+    margin-top: 0px; /* before was 50px */
     margin-bottom: 62px;
     position: relative;
     background: #fff;
 }
+.footer h6 {
+    display: block;
+    line-height: 1;
+    font-size: 1rem;
+    font-weight: 400;
+    color: #333;
+    border-width: 0 0 0 3px;
+    border-style: solid;
+    border-color: #00ab6b /*#13aff0;*/
+    letter-spacing: 1px;
+    padding-left: 15px;
+    margin: 0 0 20px;
+    text-transform: uppercase;
+    font-family: "Oswald";
+}
+
+.footer ul.list-unstyled {
+    list-style: none;
+    padding-left: 0;
+    margin: 0 0 3rem 0;
+}
+
+.footer ul.list-unstyled li {
+    display: block;
+    font-size: 0.9rem;
+}
+
+.footer ul.list-unstyled li a {
+    color: rgba(0, 0, 0, .6);
+    padding: 5px 10px;
+}
+.footer ul.list-unstyled li a:hover {
+    color: rgba(0, 0, 0, .9);
+}
 
 .link-dark {
     color: rgba(0, 0, 0, .8);
+    font-weight: 600;
+}
+
+.author-name {
+    color: rgba(0, 0, 0, .8);
+    font-weight: 600;
+    font-size: 20px;
 }
 
 .article-post {
