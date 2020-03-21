@@ -1,23 +1,14 @@
 <!-- begin post -->
 <div class="card h-100">
-    {{ if isset .Params "featured_image" }}
-    <div class="maxthumb">
-        <a href="{{ .Permalink }}">
-            <!-- Post Featured Image -->
-            {{ with .Params.featured_image }}
-            <img class="featured-image img-fluid" src="{{ . }}" alt="{{ substr (substr (. | urlize) 0 -4) 7 }}">
-            {{end}}
-            <!-- End Featured Image -->
-        </a>
-    </div>
-    {{ end }}
+
     <div class="card-body">
         <h2 class="card-title"><a class="text-dark" href="{{ .Permalink }}">{{ .Title }}</a></h2>
-        <h4 class="card-text">{{ .Summary }}</h4>
+        <h4 class="card-text">{{ .Params.excerpt }}</h4>
     </div>
     <div class="card-footer bg-white">
         <div class="wrapfooter justify-content-between">
-            {{- $publishDate := .PublishDate }}
+            {{ $podcastTime := .Params.podcastTime }}
+            {{ $publishDate := .PublishDate }}
             {{- range .Params.authors }}
             {{- with $.Site.GetPage "taxonomyTerm" (printf "authors/%s" (urlize .)) }}
             <div class="d-flex justify-content-left">
@@ -28,7 +19,7 @@
                     <span class="post-date">{{ substr (index $.Site.Data.meses (printf "%d" $publishDate.Month)) 0 3 | title }}
                         {{ $publishDate.Day }}, {{ $publishDate.Year }}
                         -
-                        <i class="far fa-clock"></i> {{ .ReadingTime }} min</span>
+                        <i class="far fa-clock"></i> {{ $podcastTime }} min</span>
                 </span>
             </div>
             {{ end }}

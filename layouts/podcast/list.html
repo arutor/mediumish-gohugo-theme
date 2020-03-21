@@ -1,0 +1,19 @@
+{{ define "main" }}
+    <div class="main-content">
+        {{ partial "_shared/title.html" . }}
+        <!-- Posts Index
+        ================================================== -->
+        <section class="recent-posts">                     
+            <div class="row listrecent">
+                {{ $post_paginator := .Paginate (.Pages) }}
+                {{ range $post_paginator.Pages.ByDate.Reverse }}
+                <div class="col-lg-4 col-md-6 mb-30px card-group">
+                    {{- partial "list-partials/podcastbox.html" . -}}
+                </div>
+                {{end}}
+            </div>
+        </section>
+        {{- partial "list-partials/pagination.html" $post_paginator -}}
+    </div>
+    {{- partial "_shared/alertbar.html" . -}}
+{{ end }}

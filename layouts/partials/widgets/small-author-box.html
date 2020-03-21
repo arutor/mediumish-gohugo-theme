@@ -1,33 +1,33 @@
 <div class="row post-top-meta">
     <div class="col-xs-6 col-md-2 col-lg-1 text-center text-md-left mb-4 mb-md-0 md-nopad-right">
-        <img class="author-thumb-small" src="{{ .RelPermalink }}{{ .Params.thumbnail | urlize | relURL}}"
-            alt="{{ .Params.name }}">
+        <img class="author-thumb-small" src="{{ .context.RelPermalink }}{{ .context.Params.thumbnail | urlize | relURL}}"
+            alt="{{ .context.Params.name }}">
     </div>
     <div class="col-xs-6 col-md-4 col-lg-4 text-left text-md-left">
         <span class="author-snippet">
-            <a target="_blank" class="link-dark">{{ .Params.name }}</a><br>
-            {{ substr (index $.Site.Data.meses (printf "%d" .Date.Month)) 0 3 | title }} {{ .Date.Day }}, {{ .Date.Year }}
+            <a target="_blank" class="link-dark">{{ .context.Params.name }}</a><br>
+            {{ .date }}
             <span class="dot"></span>
-            {{ .ReadingTime }} min read
+            {{ .context.ReadingTime }} min read
         </span>
     </div>
     <div class="col-xs-12 col-md-6 col-lg-7 text-right text-md-right md-nopad-left mt-3">
-        {{ with .Params.github }}
+        {{ with .context.Params.github }}
         <a class="pr-2" href="https://github.com/{{.}}"><i class="fab fa-github social-icon" aria-hidden="true"></i></a>
         {{ end }}
-        {{ with .Params.linkedin }}
+        {{ with .context.Params.linkedin }}
         <a class="pr-2" href="https://www.linkedin.com/in/{{.}}"><i class="fab fa-linkedin social-icon" aria-hidden="true"></i></a>
         {{ end }}
-        {{ with .Params.medium }}
+        {{ with .context.Params.medium }}
         <a class="pr-2" href="https://www.medium.com/@{{.}}"><i class="fab fa-medium social-icon" aria-hidden="true"></i></a>
         {{ end }}
-        {{ with .Params.twitter }}
+        {{ with .context.Params.twitter }}
         <a class="pr-2" href="https://twitter.com/{{.}}"><i class="fab fa-twitter social-icon" aria-hidden="true"></i></a>
         {{ end }}
-        {{ with .Params.facebook }}
+        {{ with .context.Params.facebook }}
         <a class="pr-2" href="https://facebook.com/{{.}}"><i class="fab fa-facebook social-icon" aria-hidden="true"></i></a>
         {{ end }}
-        {{ with .Params.instagram }}
+        {{ with .context.Params.instagram }}
         <a class="pr-2" href="https://www.instagram.com/{{.}}"><i class="fab fa-instagram social-icon" aria-hidden="true"></i></a>
         {{ end }}
     </div>

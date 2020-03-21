@@ -32,6 +32,7 @@
                     </div>
                     <div class="card-footer b-0 bg-white mt-auto">
                         <div class="wrapfooter justify-content-between">
+                            {{- $publishDate := .PublishDate }}
                             {{- range .Params.authors }}
                             {{- with $.Site.GetPage "taxonomyTerm" (printf "authors/%s" (urlize .)) }}
                             <div class="d-flex justify-content-left">
@@ -42,8 +43,8 @@
                                     <a target="_blank" class="link-dark"
                                         href="{{ .RelPermalink }}">{{ .Params.name }}</a><br>
                                     <span
-                                        class="post-date">{{ substr (index $.Site.Data.meses (printf "%d" .Date.Month)) 0 3 | title }}
-                                        {{ .Date.Day }}, {{ .Date.Year }}
+                                        class="post-date">{{ substr (index $.Site.Data.meses (printf "%d" $publishDate.Month)) 0 3 | title }}
+                                        {{ $publishDate.Day }}, {{ $publishDate.Year }}
                                         -
                                         <i class="far fa-clock"></i> {{ .ReadingTime }} min</span>
                                 </span>

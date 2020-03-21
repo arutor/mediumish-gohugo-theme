@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
+    {{- partial "_shared/head.html" . -}}
+    <body>
+        {{ partial "widgets/gtag-manager-body.html" . }}
+        {{- partial "_shared/navbar.html" . -}}
+        <div class="site-content">   
+            <div class="container">
+                {{- block "main" . }}{{- end }}
+            </div>
+            {{- block "footer" . }}{{- end }}
+            {{- partial "_shared/footer.html" . -}}
+        </div>
+        {{- partial "_shared/js.html" . -}}
+    </body>
+</html>
+
+{{ define "main" }}
+    <div class="main-content">
+        {{ partial "_shared/title.html" . }}
+        <!-- Posts Index
+        ================================================== -->
+        <section class="recent-posts">                     
+            <div class="row listrecent">
+                {{ $post_paginator := .Paginate (.Pages) }}
+                {{ range $post_paginator.Pages.ByDate.Reverse }}
+                {{ if eq .Params.layout "resource"}}
+                <div class="col-lg-4 col-md-6 mb-30px card-group">
+                    {{- partial "list-partials/resourcebox.html" . -}}
+                </div>
+                {{ end }}
+                {{ end }}
+            </div>
+        </section>
+        {{- partial "list-partials/pagination.html" $post_paginator -}}
+    </div>
+    {{- partial "_shared/alertbar.html" . -}}
+{{ end }}

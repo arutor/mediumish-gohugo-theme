@@ -2,7 +2,7 @@
 <div class="main-content">
     <!-- Begin Landing
         ================================================== -->
-    <div class="container container-gradient mb-5 pb-5">
+    <div class="container container-gradient mb-5">
         <div class="container d-flex justify-content-center">
             <a href="/"><img class="featured-image img-fluid" src="{{ .Site.Params.logo.logo }}" width="300px"
                 alt="{{ .Site.Params.logo.logo_alt }}"></a>
@@ -16,8 +16,9 @@
                 </div>
             </div>
             <div class="col-md-6">
-                <div class="container-fluid mt-5">
-                    <h2 class="d-flex justify-content-left align-items-center">{{ .Title }}</h2>
+                <div class="container-fluid mt-2">
+                    <h2 class="d-flex justify-content-left align-items-center text-center">{{ .Title }}</h2>
+                    <p class="lead text-center">{{ .Params.subtitle }}</p>
                 </div>
                 <div class="container-fluid d-flex justify-content-center align-items-end">
                     <!-- Landing form -->
@@ -30,7 +31,7 @@
             </div>
         </div>
     </div>
-    <div class="container mt-5 mb-5">
+    <div class="container mb-5">
         <div class="row">
             <div class="col-md-7">
                 <div class="article-post">

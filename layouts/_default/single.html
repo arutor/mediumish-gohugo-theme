@@ -15,9 +15,10 @@
                     <h1 class="posttitle">{{ .Title }}</h1>
                     <p class="post-subtitle">{{ .Params.subtitle }}</p>
                     <!-- Author Box -->
+                    {{ $publishDate := printf "%s %d, %d" (substr (index $.Site.Data.meses (printf "%d" .PublishDate.Month)) 0 3 | title) .PublishDate.Day .PublishDate.Year }}
                     {{- range .Params.authors }}
                     {{- with $.Site.GetPage "taxonomyTerm" (printf "authors/%s" (urlize .)) }}
-                    {{ partial "widgets/small-author-box.html" . }}
+                    {{ partial "widgets/small-author-box.html" (dict "context" . "date" $publishDate) }}
                     {{ end }}
                     {{ end }}
                 </div>
